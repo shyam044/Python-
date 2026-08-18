@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Learn Python step by step with focused lessons, examples, practice, and a fast, mobile-first learning experience.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="./">
+  <title>Learn Python — Step-by-Step Python Lessons</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="Learn Python home">
+        <span class="brand-mark" aria-hidden="true">Py</span>
+        <span>Learn Python</span>
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#lessons">Lessons</a>
+        <a href="#why-python">Why Python</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">PYTHON • STEP BY STEP</p>
+        <h1 id="hero-title">Learn Python without feeling overwhelmed.</h1>
+        <p class="hero-copy">Follow short, focused lessons from the fundamentals to real programming concepts. Search what you need and keep learning at your own pace.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#lessons">Learn Python <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="#why-python">Why Python?</a>
+        </div>
+        <div class="trust-row" aria-label="Site qualities">
+          <span>⚡ Fast</span>
+          <span>📱 Mobile-first</span>
+          <span>🔒 Security-conscious</span>
+          <span>🧠 Beginner-friendly</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="learning-area" id="lessons" aria-labelledby="lessons-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR LEARNING PATH</p>
+            <h2 id="lessons-title">Python lessons</h2>
+            <p>Lessons appear automatically from your <code>lessons/lessonN.html</code> files.</p>
+          </div>
+          <div class="lesson-count" aria-live="polite">
+            <span id="lesson-count-number">0</span>
+            <span>lessons</span>
+          </div>
+        </div>
+
+        <div class="search-shell">
+          <label class="search-label" for="lesson-search">Search Python lessons</label>
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="lesson-search" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="Try: variables, loops, functions…" aria-describedby="search-help">
+            <button id="clear-search" class="clear-button" type="button" aria-label="Clear search" hidden>Clear</button>
+          </div>
+          <p id="search-help" class="search-help">Search titles and lesson content. Results are prepared in the background so the first screen stays fast.</p>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite">Loading lesson index…</div>
+        <div id="lesson-list" class="lesson-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">⌕</div>
+          <h3>No matching lessons</h3>
+          <p>Try a broader Python topic such as <strong>variables</strong>, <strong>loops</strong>, <strong>functions</strong>, or <strong>lists</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-section" id="why-python" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-heading centered">
+          <p class="eyebrow">WHY PYTHON</p>
+          <h2 id="why-title">Build skills that keep getting more useful.</h2>
+          <p>Python is approachable for beginners while remaining powerful enough for automation, web development, data work, AI, scripting, and more.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Clear fundamentals</h3>
+            <p>Learn concepts in an order that reduces unnecessary cognitive load.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>Search when you need it</h3>
+            <p>Jump directly to a topic instead of scrolling through a long course page.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>Designed for every screen</h3>
+            <p>Comfortable on very small phones, tablets, laptops, and large desktop displays.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Learn Python</span>
+      <span>Learn consistently. Build confidently.</span>
+    </div>
+  </footer>
+</body>
+</html>
