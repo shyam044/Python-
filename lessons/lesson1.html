@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Learn Python print() and display your first Hello World program with an interactive Try it editor.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#3776ab">
+  <title>Python print() — Lesson 1 | Learn Python</title>
+  <link rel="canonical" href="/lessons/lesson1.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Python print() — Lesson 1">
+  <meta property="og:description" content="Learn how Python print() displays output with your first Hello World example.">
+  <meta property="og:url" content="/lessons/lesson1.html">
+  <meta name="lesson-title" content="Python print()">
+  <meta name="lesson-number" content="1">
+  <meta name="lesson-level" content="Beginner">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg:#f7f9fc; --surface:#fff; --surface-2:#f0f4f8; --text:#152033; --muted:#5f6b7a;
+      --border:#dce3eb; --primary:#3776ab; --accent:#ffd343; --success:#137333; --error:#b42318;
+      --code:#111827; --code-text:#eaf2ff; --shadow:0 12px 40px rgba(20,42,70,.09); --radius:18px; --max:980px;
+    }
+    @media (prefers-color-scheme:dark){
+      :root{--bg:#0b1220;--surface:#111a2b;--surface-2:#172236;--text:#eef4fb;--muted:#a8b5c7;--border:#26344a;--primary:#64a3d8;--accent:#ffd343;--success:#6fd08c;--error:#ff8177;--code:#080d16;--code-text:#edf6ff;--shadow:0 16px 46px rgba(0,0,0,.28)}
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 8% 0%,rgba(55,118,171,.10),transparent 30%),radial-gradient(circle at 92% 8%,rgba(255,211,67,.13),transparent 28%),var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{color:var(--primary)}
+    a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    .wrap{width:min(calc(100% - 28px),var(--max));margin-inline:auto}
+    .topbar{padding:18px 0;border-bottom:1px solid var(--border);background:var(--surface)}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{color:var(--text);text-decoration:none;font-weight:800;letter-spacing:-.02em}
+    .breadcrumb{color:var(--muted);font-size:.92rem;white-space:nowrap}
+    main{padding:34px 0 60px}
+    .hero{display:grid;gap:18px;margin-bottom:24px}
+    .badge{display:inline-flex;align-items:center;width:fit-content;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--primary);font-weight:750;font-size:.82rem}
+    h1{margin:10px 0 0;font-size:clamp(2rem,7vw,3.25rem);line-height:1.06;letter-spacing:-.045em}
+    .lead{margin:14px 0 0;max-width:720px;color:var(--muted);font-size:clamp(1rem,2vw,1.1rem)}
+    .lesson-card,.try-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .lesson-card{padding:clamp(20px,4vw,34px);margin-bottom:22px}
+    h2{margin:0 0 12px;font-size:clamp(1.35rem,3vw,1.75rem);letter-spacing:-.025em}
+    p{margin:0 0 14px}
+    .example{margin:18px 0 16px;overflow:hidden;border:1px solid var(--border);border-radius:14px;background:var(--code)}
+    .code-label{padding:9px 13px;color:#a7b8cd;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.09);font-size:.8rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+    pre{margin:0;padding:18px;overflow:auto;color:var(--code-text);font:500 .98rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .inline-code{padding:.14em .38em;border:1px solid var(--border);border-radius:7px;background:var(--surface-2)}
+    .try-card{padding:clamp(18px,3vw,28px)}
+    .try-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+    .try-subtitle{margin:0;color:var(--muted);font-size:.94rem}
+    .editor{width:100%;min-height:210px;resize:vertical;border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--code);color:var(--code-text);font:500 .98rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:4}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    button{border:0;border-radius:11px;padding:11px 17px;font:inherit;font-weight:750;cursor:pointer;touch-action:manipulation;transition:transform .16s ease,opacity .16s ease}
+    button:hover{transform:translateY(-1px)} button:disabled{opacity:.58;cursor:wait;transform:none}
+    .run-btn{color:#0c1b29;background:var(--accent)}
+    .reset-btn{color:var(--text);background:var(--surface-2);border:1px solid var(--border)}
+    .status{min-height:24px;margin-top:10px;color:var(--muted);font-size:.9rem}
+    .output{margin-top:14px;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .output-title{padding:10px 13px;background:var(--surface-2);font-weight:750;font-size:.9rem}
+    .output pre{min-height:84px;background:var(--code)}
+    .error{color:var(--error)} .success{color:var(--success)}
+    .nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .nav a{text-decoration:none;font-weight:700}
+    .note{padding:14px 16px;border-left:4px solid var(--primary);border-radius:10px;background:var(--surface-2)}
+    footer{padding:24px 0 36px;color:var(--muted);font-size:.88rem;text-align:center}
+    @media(max-width:480px){.wrap{width:min(calc(100% - 20px),var(--max))}main{padding-top:22px}.lesson-card,.try-card{border-radius:14px}.editor{min-height:190px;font-size:.9rem}button{width:100%}.breadcrumb{display:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+
+  <!-- Place your supplied compiler files in this same /lessons/ folder. -->
+  <script src="core-engine.js" defer></script>
+  <script src="python-compiler.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="../index.html" aria-label="Learn Python home">Learn Python</a>
+      <div class="breadcrumb" aria-label="Breadcrumb">Python / Lesson 1</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <section class="hero">
+        <div class="badge">Lesson 1 · Beginner</div>
+        <div>
+          <h1>Displaying the output</h1>
+          <p class="lead">To display output, we use <code class="inline-code">print()</code>. Start with the classic Hello World example and then run it yourself.</p>
+        </div>
+      </section>
+
+      <section class="lesson-card" aria-labelledby="explanation-title">
+        <h2 id="explanation-title">To display the output, we use print()</h2>
+        <p>The Python <code class="inline-code">print()</code> function sends the value inside the parentheses to the program output.</p>
+        <div class="example" aria-label="Python code example">
+          <div class="code-label">Python</div>
+          <pre><code>print("Hello World")</code></pre>
+        </div>
+        <p>You can replace <code class="inline-code">"Hello World"</code> with other text, numbers, variables, or expressions that you want Python to display.</p>
+        <div class="note"><strong>Try it:</strong> change the code below and run it. The result will appear in the output panel.</div>
+      </section>
+
+      <section class="try-card" aria-labelledby="try-title">
+        <div class="try-head">
+          <div>
+            <h2 id="try-title">Try it</h2>
+            <p class="try-subtitle">Run your Python code with the compiler files supplied for this lesson.</p>
+          </div>
+        </div>
+
+        <label for="code-editor"><strong>Python code</strong></label>
+        <textarea id="code-editor" class="editor" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Python code editor">print("Hello World")</textarea>
+
+        <div class="actions">
+          <button id="run-code" class="run-btn" type="button">Run code</button>
+          <button id="reset-code" class="reset-btn" type="button">Reset</button>
+        </div>
+
+        <div id="run-status" class="status" role="status" aria-live="polite"></div>
+        <div class="output" aria-labelledby="output-title">
+          <div id="output-title" class="output-title">Output</div>
+          <pre id="output" aria-live="polite"></pre>
+        </div>
+      </section>
+
+      <nav class="nav" aria-label="Lesson navigation">
+        <a href="../index.html">← All lessons</a>
+        <a href="lesson2.html">Next lesson →</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer>Learn Python · Lesson 1</footer>
+
+  <script>
+    (() => {
+      "use strict";
+      const initialCode = 'print("Hello World")';
+      const editor = document.getElementById("code-editor");
+      const output = document.getElementById("output");
+      const status = document.getElementById("run-status");
+      const runButton = document.getElementById("run-code");
+      const resetButton = document.getElementById("reset-code");
+
+      function setStatus(message, className = "") {
+        status.textContent = message;
+        status.className = "status" + (className ? " " + className : "");
+      }
+
+      function runCode() {
+        if (typeof PythonCompiler === "undefined" || typeof PythonCompiler.run !== "function") {
+          output.textContent = "Compiler could not be loaded. Check that core-engine.js and python-compiler.js are in this lessons folder.";
+          setStatus("Compiler unavailable.", "error");
+          return;
+        }
+
+        const source = editor.value;
+        runButton.disabled = true;
+        setStatus("Running…");
+        output.textContent = "";
+
+        try {
+          const result = PythonCompiler.run(source, "");
+          if (result && result.ok) {
+            output.textContent = result.output || "";
+            setStatus("Program finished successfully.", "success");
+          } else {
+            output.textContent = (result && result.error) ? result.error : "The program could not be executed.";
+            setStatus("There was an error while running the program.", "error");
+          }
+        } catch (error) {
+          output.textContent = error instanceof Error ? error.message : "Unexpected compiler error.";
+          setStatus("The compiler returned an unexpected error.", "error");
+        } finally {
+          runButton.disabled = false;
+        }
+      }
+
+      function resetCode() {
+        editor.value = initialCode;
+        output.textContent = "";
+        setStatus("");
+        editor.focus();
+      }
+
+      runButton.addEventListener("click", runCode);
+      resetButton.addEventListener("click", resetCode);
+
+      editor.addEventListener("keydown", (event) => {
+        if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+          event.preventDefault();
+          runCode();
+        }
+      });
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LearningResource",
+    "name":"Python print() — Lesson 1",
+    "description":"Learn how Python print() displays output with a Hello World example.",
+    "learningResourceType":"lesson",
+    "educationalLevel":"Beginner",
+    "inLanguage":"en",
+    "isPartOf":{"@type":"Course","name":"Learn Python"}
+  }
+  </script>
+</body>
+</html>
